@@ -10,7 +10,7 @@ import { Mission } from '../../auth/interfaces/interface';
   templateUrl: './missionsId.html',
 })
 
-export class Missions implements OnInit{
+export class MissionsId implements OnInit{
     @Input() id !: string;
     private service = inject(CryptoServices);
   

@@ -29,6 +29,8 @@ export interface Mission {
     agenteId:    number | null;
 }
 
+
+
 export interface Aspirant {
     id: string;
     alias: string;

@@ -32,6 +32,10 @@ export class CryptoServices {
     return this.httpClient.get<Mission>(this.URL_BaseMissions + "/misiones/" + id);
   }
 
+  missionEdit(id : string, mission : Mission){
+    return this.httpClient.put<Mission>(this.URL_BaseMissions + "/misiones/" + id, mission);
+  }
+
   getAspirants() {
     this.httpClient.get<Aspirant[]>(this.URL_BaseAspirantes).subscribe({
       next: aspirants => this._aspirants.set(aspirants),
