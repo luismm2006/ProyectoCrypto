@@ -1,0 +1,109 @@
+<section class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="space-y-6">
+        <h1 class="text-5xl font-bold tracking-tighter text-white">
+            El mundo necesita <br> <span class="text-agency-green">fantasmas.</span>
+        </h1>
+        <p class="text-gray-400 text-lg border-l-4 border-agency-green pl-4">
+            Nuestras operaciones no existen. Nuestros agentes no tienen nombre. Si buscas gloria, vete a la marina. Si
+            quieres proteger el futuro, únete a nosotros.
+        </p>
+        <div class="flex gap-4">
+            <div class="bg-agency-gray p-4 rounded border border-gray-700">
+                <span class="block text-2xl font-bold text-white">84%</span>
+                <span class="text-xs text-gray-500 uppercase">Tasa de éxito</span>
+            </div>
+            <div class="bg-agency-gray p-4 rounded border border-gray-700">
+                <span class="block text-2xl font-bold text-white">Global</span>
+                <span class="text-xs text-gray-500 uppercase">Operatividad</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-agency-gray/50 p-8 rounded-lg border border-gray-700 shadow-2xl backdrop-blur-sm relative overflow-hidden">
+    <div class="absolute top-0 right-0 p-2 bg-agency-green text-black text-xs font-bold">RECLUTAMIENTO</div>
+
+    <h2 class="text-2xl font-bold mb-6 text-white">Solicitud de Acceso</h2>
+
+    <form (ngSubmit)="enviarSolicitud()" #aspiranteForm="ngForm">
+        
+        <div class="mb-4">
+            <label class="block text-gray-400 text-sm font-bold mb-2">Alias Operativo</label>
+            <input 
+                type="text" 
+                name="alias"
+                [(ngModel)]="aspirante.alias"
+                required
+                (input)="validarSinEspacios()" 
+                placeholder="Ej: Shadow"
+                class="w-full bg-black/50 border border-gray-600 rounded py-2 px-3 text-white focus:outline-none focus:border-agency-green transition">
+            @if (notValidField('alias')) {
+                <span class="text-red-500 text-xs italic mt-1 block">
+                    {{ getFieldError('alias') }}
+                </span>
+
+            }
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-400 text-sm font-bold mb-2">Email Seguro</label>
+            <input 
+                type="email" 
+                name="email"
+                [(ngModel)]="aspirante.email"
+                required
+                email
+                placeholder="correo@encriptado.com"
+                class="w-full bg-black/50 border border-gray-600 rounded py-2 px-3 text-white focus:outline-none focus:border-agency-green transition">
+            @if (notValidField('email')) {
+                <span class="text-red-500 text-xs italic mt-1 block">
+                    {{ getFieldError('email') }}
+                </span>
+            }
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-400 text-sm font-bold mb-2">Nacionalidad</label>
+            <select 
+                name="nacionalidad"
+                [(ngModel)]="aspirante.nacionalidad"
+                required
+                class="w-full bg-black/50 border border-gray-600 rounded py-2 px-3 text-white focus:outline-none focus:border-agency-green transition">
+                <option value="">Seleccionar...</option>
+                <option value="Europa">Europa</option>
+                <option value="América">América</option>
+                <option value="Asia">Asia</option>
+            </select>
+            @if (notValidField('nacionalidad')) {
+                <span class="text-red-500 text-xs italic mt-1 block">
+                    {{ getFieldError('nacionalidad') }}
+                </span>
+
+            }            
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-400 text-sm font-bold mb-2">Años de Experiencia</label>
+            <input 
+                type="number" 
+                name="experiencia"
+                [(ngModel)]="aspirante.experiencia"
+                required
+                min="1"
+                max="50"
+                class="w-full bg-black/50 border border-gray-600 rounded py-2 px-3 text-white focus:outline-none focus:border-agency-green transition">
+            @if (notValidField('experiencia')) {
+                <span class="text-red-500 text-xs italic mt-1 block">
+                    {{ getFieldError('experiencia') }}
+                </span>
+
+            }
+        </div>
+
+        <button 
+            type="submit"
+            class="w-full bg-agency-green hover:bg-green-600 text-black font-bold py-3 px-4 rounded transition duration-300 transform hover:scale-105">
+            ENVIAR SOLICITUD CIFRADA
+        </button>
+    </form>
+</div>
+</section>

@@ -1,0 +1,61 @@
+/* 1. Importación oficial de Tailwind 4 */
+@import "tailwindcss";
+
+/* 2. Configuración del Tema (Sustituye al antiguo tailwind.config.js) */
+@theme {
+  /* Definimos los colores personalizados */
+  --color-agency-black: #0a0a0a;
+  --color-agency-dark: #171717;
+  --color-agency-gray: #262626;
+  --color-agency-green: #10b981;
+  --color-agency-neon: #00ff9d;
+
+  /* Sobrescribimos la fuente 'mono' o creamos una nueva */
+  --font-courier: "Courier New", Courier, monospace;
+}
+
+/* 3. Estilos Base y Utilidades Personalizadas */
+
+/* En Tailwind 4, @layer base se comporta así para etiquetas html */
+@layer base {
+  body {
+    /* Usamos los colores definidos arriba */
+    background-color: var(--color-agency-black); 
+    color: #e5e5e5;
+    font-family: var(--font-courier);
+    overflow-x: hidden;
+  }
+}
+
+/* 4. Animación 'Scanline' y Scrollbar */
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 10;
+  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0, 255, 157, 0.04) 50%, rgba(0,0,0,0) 100%);
+  opacity: 0.1;
+  position: absolute;
+  bottom: 100%;
+  animation: scanline 10s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { bottom: 100%; }
+  100% { bottom: -100%; }
+}
+
+/* Scrollbar oscura */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}

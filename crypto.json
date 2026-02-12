@@ -1,0 +1,23 @@
+{
+  "misiones": [
+    {
+      "id": "1",
+      "codigo": "GHOST-001",
+      "titulo": "Operación Sombra",
+      "descripcion": "Infiltración en la embajada para recuperar el microchip.",
+      "secreto": "Alto",
+      "estado": "Activa",
+      "agente": "007"
+    },
+    {
+      "id": "2",
+      "codigo": "ECHO-882",
+      "titulo": "Rescate Alpino",
+      "descripcion": "Extracción del objetivo VIP en los Alpes suizos.",
+      "secreto": "Medio",
+      "estado": "Pendiente",
+      "agente": "Ethan Hunt"
+    }
+  ],
+  "aspirantes": []
+}

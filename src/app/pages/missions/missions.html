@@ -1,0 +1,61 @@
+<section>
+    <div class="flex justify-between items-end mb-8">
+        <div>
+            <h2 class="text-3xl font-bold text-white">Panel de Misiones</h2>
+            <p class="text-gray-500">Autorización Nivel 5 requerida</p>
+        </div>
+        <button
+            class="bg-transparent border border-gray-500 text-gray-300 hover:border-agency-green hover:text-agency-green px-4 py-2 rounded transition"
+            routerLink="/add-mission">
+            + NUEVA OPERACIÓN
+        </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <article
+            class="bg-agency-gray rounded-lg border-l-4 border-agency-green p-6 hover:bg-gray-800 transition shadow-lg relative group">
+            <div class="absolute top-4 right-4 text-xs font-mono text-gray-500 group-hover:text-agency-green">GHOST-001
+            </div>
+            <div class="mb-4">
+                <span class="bg-red-900/30 text-red-500 text-xs font-bold px-2 py-1 rounded border border-red-900">TOP
+                    SECRET</span>
+                <span
+                    class="ml-2 bg-blue-900/30 text-blue-400 text-xs font-bold px-2 py-1 rounded border border-blue-900">ACTIVA</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Operación Sombra</h3>
+            <p class="text-gray-400 text-sm mb-4">Infiltración en la embajada para recuperar el microchip con los
+                códigos de lanzamiento.</p>
+            <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-700">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-gray-600 flex items-center justify-center text-xs">007</div>
+                    <span class="text-xs text-gray-400">James B.</span>
+                </div>
+                <button class="text-agency-green text-sm hover:underline">Ver Informe &rarr;</button>
+            </div>
+        </article>
+
+        <article
+            class="bg-agency-gray rounded-lg border-l-4 border-yellow-500 p-6 hover:bg-gray-800 transition shadow-lg relative group">
+            <div class="absolute top-4 right-4 text-xs font-mono text-gray-500 group-hover:text-yellow-500">ECHO-882
+            </div>
+            <div class="mb-4">
+                <span
+                    class="bg-yellow-900/30 text-yellow-500 text-xs font-bold px-2 py-1 rounded border border-yellow-900">CONFIDENCIAL</span>
+                <span
+                    class="ml-2 bg-gray-700 text-gray-300 text-xs font-bold px-2 py-1 rounded border border-gray-600">PENDIENTE</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Rescate Alpino</h3>
+            <p class="text-gray-400 text-sm mb-4">Extracción del objetivo VIP en los Alpes suizos antes de que llegue el
+                invierno nuclear.</p>
+            <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-700">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-gray-600 flex items-center justify-center text-xs">EH</div>
+                    <span class="text-xs text-gray-400">Ethan H.</span>
+                </div>
+                <button class="text-yellow-500 text-sm hover:underline">Ver Informe &rarr;</button>
+            </div>
+        </article>
+
+    </div>
+</section>

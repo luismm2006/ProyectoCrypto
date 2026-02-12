@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.R.Y.P.T.O. Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        agency: {
+                            black: '#0a0a0a',
+                            dark: '#171717',
+                            gray: '#262626',
+                            green: '#10b981',
+                            neon: '#00ff9d'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Efecto Scanline para dar toque de espionaje */
+        body { background-color: #0a0a0a; color: #e5e5e5; font-family: 'Courier New', monospace; }
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0, 255, 157, 0.04) 50%, rgba(0,0,0,0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scanline 10s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100%; }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen overflow-x-hidden">
+
+    <div class="scanline"></div>
+
+    <nav class="border-b border-agency-green/30 bg-agency-dark/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 bg-agency-green rounded-full animate-pulse"></div>
+                    <span class="text-xl font-bold tracking-widest text-agency-neon">C.R.Y.P.T.O.</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white hover:bg-agency-gray px-3 py-2 rounded-md text-sm font-medium transition">Inicio</a>
+                        <a href="#" class="text-gray-300 hover:text-white hover:bg-agency-gray px-3 py-2 rounded-md text-sm font-medium transition">Misiones</a>
+                        <a href="#" class="bg-agency-green/20 text-agency-neon border border-agency-green/50 hover:bg-agency-green/30 px-4 py-2 rounded text-sm font-bold transition">ACCESO AGENTES</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+
+        <section class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-5xl font-bold tracking-tighter text-white">
+                    El mundo necesita <br> <span class="text-agency-green">fantasmas.</span>
+                </h1>
+                <p class="text-gray-400 text-lg border-l-4 border-agency-green pl-4">
+                    Nuestras operaciones no existen. Nuestros agentes no tienen nombre. Si buscas gloria, vete a la marina. Si quieres proteger el futuro, únete a nosotros.
+                </p>
+                <div class="flex gap-4">
+                    <div class="bg-agency-gray p-4 rounded border border-gray-700">
+                        <span class="block text-2xl font-bold text-white">84%</span>
+                        <span class="text-xs text-gray-500 uppercase">Tasa de éxito</span>
+                    </div>
+                    <div class="bg-agency-gray p-4 rounded border border-gray-700">
+                        <span class="block text-2xl font-bold text-white">Global</span>
+                        <span class="text-xs text-gray-500 uppercase">Operatividad</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-agency-gray/50 p-8 rounded-lg border border-gray-700 shadow-2xl backdrop-blur-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-2 bg-agency-green text-black text-xs font-bold">RECLUTAMIENTO</div>
+                
+                <h2 class="text-2xl font-bold mb-6 text-white">Solicitud de Acceso</h2>
+                
+                <form>
+                    <div class="mb-4">
+                        <label class="block text-gray-400 text-sm font-bold mb-2">Alias Operativo</label>
+                        <input type="text" placeholder="Ej: Shadow" class="w-full bg-black/50 border border-gray-600 rounded py-2 px-3 text-white focus:outline-none focus:border-agency-green transition">
+                        <p class="text-red-500 text-xs italic mt-1 hidden">El alias es obligatorio</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-gray-400 text-sm font-bold mb-2">Email Seguro</label>
+                        <input type="email" placeholder="correo@encriptado.com" class="w-full bg-black/50 border border-gray-600 rounded py-2 px-3 text-white focus:outline-none focus:border-agency-green transition">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-gray-400 text-sm font-bold mb-2">Nacionalidad</label>
+                        <select class="w-full bg-black/50 border border-gray-600 rounded py-2 px-3 text-white focus:outline-none focus:border-agency-green transition">
+                            <option>Seleccionar...</option>
+                            <option>Europa</option>
+                            <option>América</option>
+                            <option>Asia</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="w-full bg-agency-green hover:bg-green-600 text-black font-bold py-3 px-4 rounded transition duration-300 transform hover:scale-105">
+                        ENVIAR SOLICITUD CIFRADA
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-gray-800"></div>
+
+        <section>
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">Panel de Misiones</h2>
+                    <p class="text-gray-500">Autorización Nivel 5 requerida</p>
+                </div>
+                <button class="bg-transparent border border-gray-500 text-gray-300 hover:border-agency-green hover:text-agency-green px-4 py-2 rounded transition">
+                    + NUEVA OPERACIÓN
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <article class="bg-agency-gray rounded-lg border-l-4 border-agency-green p-6 hover:bg-gray-800 transition shadow-lg relative group">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-gray-500 group-hover:text-agency-green">GHOST-001</div>
+                    <div class="mb-4">
+                        <span class="bg-red-900/30 text-red-500 text-xs font-bold px-2 py-1 rounded border border-red-900">TOP SECRET</span>
+                        <span class="ml-2 bg-blue-900/30 text-blue-400 text-xs font-bold px-2 py-1 rounded border border-blue-900">ACTIVA</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Operación Sombra</h3>
+                    <p class="text-gray-400 text-sm mb-4">Infiltración en la embajada para recuperar el microchip con los códigos de lanzamiento.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-700">
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 rounded-full bg-gray-600 flex items-center justify-center text-xs">007</div>
+                            <span class="text-xs text-gray-400">James B.</span>
+                        </div>
+                        <button class="text-agency-green text-sm hover:underline">Ver Informe &rarr;</button>
+                    </div>
+                </article>
+
+                <article class="bg-agency-gray rounded-lg border-l-4 border-yellow-500 p-6 hover:bg-gray-800 transition shadow-lg relative group">
+                    <div class="absolute top-4 right-4 text-xs font-mono text-gray-500 group-hover:text-yellow-500">ECHO-882</div>
+                    <div class="mb-4">
+                        <span class="bg-yellow-900/30 text-yellow-500 text-xs font-bold px-2 py-1 rounded border border-yellow-900">CONFIDENCIAL</span>
+                        <span class="ml-2 bg-gray-700 text-gray-300 text-xs font-bold px-2 py-1 rounded border border-gray-600">PENDIENTE</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Rescate Alpino</h3>
+                    <p class="text-gray-400 text-sm mb-4">Extracción del objetivo VIP en los Alpes suizos antes de que llegue el invierno nuclear.</p>
+                    <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-700">
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 rounded-full bg-gray-600 flex items-center justify-center text-xs">EH</div>
+                            <span class="text-xs text-gray-400">Ethan H.</span>
+                        </div>
+                        <button class="text-yellow-500 text-sm hover:underline">Ver Informe &rarr;</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-gray-800"></div>
+
+        <section class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Codificar Nueva Misión</h2>
+
+            <div class="bg-agency-gray p-8 rounded-xl border border-gray-700 shadow-2xl">
+                
+                <form class="space-y-6">
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Código de Misión</label>
+                        <div class="relative">
+                            <input type="text" placeholder="ABC-123" class="w-full bg-black/40 border border-gray-600 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-agency-green focus:border-transparent transition">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                <span class="text-gray-500">🔒</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Formato requerido: 3 letras, guión, 3 números.</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Nombre en Clave</label>
+                        <input type="text" class="w-full bg-black/40 border border-gray-600 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-agency-green focus:border-transparent transition">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Nivel de Secreto</label>
+                            <select class="w-full bg-black/40 border border-gray-600 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-agency-green focus:border-transparent transition">
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                                <option>CRÍTICO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Agente Asignado</label>
+                            <input type="text" placeholder="ID de Agente" class="w-full bg-black/40 border border-gray-600 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-agency-green focus:border-transparent transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1">Objetivos de la Misión</label>
+                        <textarea rows="4" class="w-full bg-black/40 border border-gray-600 rounded-md py-3 px-4 text-white focus:ring-2 focus:ring-agency-green focus:border-transparent transition"></textarea>
+                    </div>
+
+                    <div class="flex gap-4 pt-4">
+                        <button type="button" class="w-1/3 py-3 px-4 border border-gray-600 text-gray-300 rounded hover:bg-gray-700 transition font-bold">CANCELAR</button>
+                        <button type="submit" class="w-2/3 py-3 px-4 bg-agency-green hover:bg-green-600 text-black rounded transition font-bold shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+                            INICIAR PROTOCOLO
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-8 text-gray-600 text-xs font-mono">
+        ESTE SISTEMA ESTÁ MONITORIZADO. CUALQUIER ACCESO NO AUTORIZADO SERÁ PERSEGUIDO. <br> C.R.Y.P.T.O. v2.4.0
+    </footer>
+
+</body>
+</html>
