@@ -1,16 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
-import { Services } from '../Services/services';
+import { AuthService } from '../Services/authService';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, SwalComponent],
   templateUrl: './login.html',
 })
 export class Login {
   
-  private service = inject(Services);
+  private service = inject(AuthService);
   private fb : FormBuilder = inject(FormBuilder);
   private router = inject(Router);
 
@@ -20,7 +22,7 @@ export class Login {
   })
 
   isValidField(field : string){
-    return this.formLogin.controls[field]?.errors && this.formLogin.controls[field]?.touched;
+    return this.formLogin.controls[field].errors && this.formLogin.controls[field].touched;
   }
 
   getFieldError(field: string){
@@ -41,17 +43,25 @@ export class Login {
     return null
   }
 
+  @ViewChild('swalSuccess') swalSuccess !: SwalComponent;
+  @ViewChild('swalError') swalError !: SwalComponent;
+
+
   login(){
     if(!this.formLogin.valid){
-      this.formLogin.markAllAsTouched();
+      this.swalError.fire();
       return;
     }
-    const {email, password} = this.formLogin.value;
-    this.service.login(email, password).subscribe({
-      next : response => {
-        this.router.navigateByUrl("/")
+
+    this.service.login(this.formLogin.value.email, this.formLogin.value.password)
+    .subscribe({
+      next: response => {
+        this.router.navigate(['/'])
+        this.swalSuccess.fire();
+      },
+      error: () => {
+        this.swalError.fire();
       }
     })
-
   }
 }

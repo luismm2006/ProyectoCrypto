@@ -32,6 +32,12 @@
               class="w-full pl-10 pr-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-500 transition-all"
               formControlName="email"
             >
+            @if (isValidField('email')) {
+              <p class="text-red-500 text-xs mt-1">
+                {{getFieldError('email')}}
+              </p>
+            }
+              
             </div>
         </div>
 
@@ -53,6 +59,11 @@
               class="w-full pl-10 pr-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-white placeholder-gray-500 transition-all"
               formControlName="password"
             >
+            @if (isValidField('password')) {
+              <p class="text-red-500 text-xs mt-1">
+                {{getFieldError('password')}}
+              </p>
+            }
              </div>
         </div>
 
@@ -75,3 +86,5 @@
 
   </div>
 </div>
+<swal #swalSuccess title="¡Éxito!" text="Formulario enviado con éxito" icon="success"></swal>
+<swal #swalError title="Érror!" text="Credenciales incorrectas!" icon="error"></swal>
