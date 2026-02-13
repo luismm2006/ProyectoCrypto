@@ -22,8 +22,8 @@ export class NewMission {
     ]],
 
     titulo: ['', [
-      Validators.required, this.serviceValidator.cantBe("Mision")
-    ]],
+      Validators.required, this.serviceValidator.cantBe("Mision") 
+    ], [this.serviceValidator.validateNameMission()]],
 
     secreto: ['Bajo', [Validators.required]], // Valor por defecto 'Bajo'
 
@@ -57,6 +57,8 @@ export class NewMission {
           return 'Formato inválido. Requerido: XXX-000 (Mayúsculas).';
         case 'palabraProhibida': // <--- Error del Factory
           return `No puedes usar la palabra "${errors['palabraProhibida'].value}" en una misión real.`;
+        case "nameTaken":
+          return "No puedes poner ese nombre ya existente"
         default:
           return 'Error de validación.';
       }

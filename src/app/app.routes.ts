@@ -12,7 +12,8 @@ export const routes: Routes = [
 
     { path: "add-mission", loadComponent: () => import('./pages/new-mission/new-mission').then(m => m.NewMission), canActivate : [guardAdmin]},
     { path: "edit-mission/:id", loadComponent: () => import('./pages/missionsEdit/missionsEdit').then(m => m.MissionsEdit), canActivate : [guardAdmin]},
-    { path: "delete-mission/:id", loadComponent: () => import('./pages/new-mission/new-mission').then(m => m.NewMission), canActivate : [guardAdmin]},
+    { path: "delete-mission/:id", loadComponent: () => import('./pages/mission-delete/mission-delete').then(m => m.MissionDelete), canActivate : [guardAdmin]},
+    { path: "users", loadComponent: () => import("./pages/agent/agent-list/agent-list").then(a => a.AgentList), canActivate : [guardAdmin]},
 
     { path: "login", loadComponent: () => import('./auth/login/login').then(l => l.Login)}
 ];

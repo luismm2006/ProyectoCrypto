@@ -30,10 +30,18 @@ export interface Mission {
 }
 
 
-
 export interface Aspirant {
     id: string;
     alias: string;
     email: string,
     nacionalidad: string
+}
+
+export type NewAgent = {
+    id: string;
+    alias: string;
+    email: string,
+    nacionalidad: string,
+    role: string,
+    password : string
 }

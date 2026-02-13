@@ -6,7 +6,7 @@ import { Aspirant, Mission } from '../auth/interfaces/interface';
   providedIn: 'root',
 })
 export class CryptoServices {
-  private URL_BaseAspirantes = "http://localhost:3000/aspirantes";
+  private URL_BaseAspirantes = "http://localhost:3000";
   private URL_BaseMissions = "http://localhost:3000";
 
   private _missions = signal<Mission[]>([]);
@@ -14,9 +14,7 @@ export class CryptoServices {
   missions = this._missions.asReadonly();
 
 
-  private _aspirants = signal<Aspirant[]>([]);
 
-  aspirants = this._aspirants.asReadonly();
 
   private httpClient = inject(HttpClient);
 
@@ -36,19 +34,25 @@ export class CryptoServices {
     return this.httpClient.put<Mission>(this.URL_BaseMissions + "/misiones/" + id, mission);
   }
 
+  deleteMission(id : string){
+    return this.httpClient.delete<Mission>(this.URL_BaseMissions + "/misiones/" + id);
+  }
+
+
   getAspirants() {
-    this.httpClient.get<Aspirant[]>(this.URL_BaseAspirantes).subscribe({
-      next: aspirants => this._aspirants.set(aspirants),
-      error: error => console.error
-    })
+    return this.httpClient.get<Aspirant[]>(this.URL_BaseAspirantes + "/users");
   }
 
   addAspirant(newAspirant: Omit<Aspirant, "id">) {
-    this.httpClient.post<Aspirant>(this.URL_BaseAspirantes, newAspirant).subscribe({
+    this.httpClient.post<Aspirant>(this.URL_BaseAspirantes  + "/users", newAspirant).subscribe({
       next: aspirant => this.getAspirants(),
       error: error => console.log(error)
     })
   }
+
+
+
+
 
   addMission(newMission: any) {
 

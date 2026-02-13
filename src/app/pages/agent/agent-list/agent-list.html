@@ -1,0 +1,45 @@
+<section class="max-w-4xl mx-auto mt-10">
+  <h2 class="text-3xl font-bold text-white mb-8 text-center">
+    Lista de Aspirantes
+  </h2>
+
+  <div class="bg-agency-gray p-6 rounded-xl border border-gray-700 shadow-xl">
+
+    @if (!agents) {
+      <div class="text-center text-gray-400 py-10">
+        No hay aspirantes registrados.
+      </div>
+    }
+
+    @if (agents) {
+      <table class="w-full text-left text-gray-300">
+        <thead>
+          <tr class="border-b border-gray-700 text-gray-400">
+            <th class="py-3 px-2">Alias</th>
+            <th class="py-3 px-2">Email</th>
+            <th class="py-3 px-2">Nacionalidad</th>
+            <th class="py-3 px-2 text-center">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (agent of agents; track agent.id) {
+            <tr class="border-b border-gray-800 hover:bg-black/20 transition">
+              <td class="py-3 px-2 font-semibold">{{ agent.alias }}</td>
+              <td class="py-3 px-2">{{ agent.email }}</td>
+              <td class="py-3 px-2">{{ agent.nacionalidad }}</td>
+
+              <td class="py-3 px-2 text-center">
+                <button 
+                  class="bg-agency-green text-black px-4 py-2 rounded font-bold hover:bg-green-600 transition shadow-[0_0_10px_rgba(16,185,129,0.4)]">
+                  Ver Perfil
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+
+  </div>
+</section>
