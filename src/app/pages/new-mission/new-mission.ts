@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ValidatorService } from '../../Services/validatorService';
 
 @Component({
   selector: 'app-new-mission',
@@ -10,17 +11,18 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class NewMission {
   private fb = inject(FormBuilder);
   private http = inject(HttpClient);
+  private serviceValidator = inject(ValidatorService);
 
   // Definición del Formulario Reactivo
   misionForm: FormGroup = this.fb.group({
     // Campo: [ValorInicial, [Validadores Síncronos], [Validadores Asíncronos]]
 
     codigo: ['', [
-      Validators.required,
+      Validators.required, this.serviceValidator.codigoValidator
     ]],
 
     titulo: ['', [
-      Validators.required
+      Validators.required, this.serviceValidator.cantBe("Mision")
     ]],
 
     secreto: ['Bajo', [Validators.required]], // Valor por defecto 'Bajo'
@@ -51,7 +53,7 @@ export class NewMission {
           return 'Este campo es requerido.';
         case 'minlength':
           return `Mínimo ${errors['minlength'].requiredLength} caracteres.`;
-        case 'codigoSecreto': // <--- Error del Reto
+        case 'codigoValido':
           return 'Formato inválido. Requerido: XXX-000 (Mayúsculas).';
         case 'palabraProhibida': // <--- Error del Factory
           return `No puedes usar la palabra "${errors['palabraProhibida'].value}" en una misión real.`;

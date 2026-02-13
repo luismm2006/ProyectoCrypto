@@ -20,10 +20,7 @@ export class MissionsEdit implements OnInit{
     private router = inject(Router);
 
     public misionEditForm : FormGroup = this.fb.group({
-        //El codigo se hara validacion personalizada
         codigo: ["", [Validators.required, Validators.pattern(/^[A-Z]{3}-\d{3}$/)]],
-        //El codigo se hara validacion personalizada
-
         titulo: ["", [Validators.required]],
         descripcion: ["", [Validators.required]],
         secreto: ["", [Validators.required]],
